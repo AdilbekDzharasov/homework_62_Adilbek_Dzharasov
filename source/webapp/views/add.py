@@ -15,4 +15,10 @@ def add_view(request):
         'execute_at': execute
     }
     task = Task.objects.create(**task_data)
-    return redirect(f"/tasks/&pk={task.pk}")
+    return redirect(f"/tasks/?pk={task.pk}")
+
+def detail_view(request):
+    pk = request.GET.get("pk")
+    task = Task.objects.get(pk=pk)
+    return render(request, 'task.html', context={'task': task})
+
