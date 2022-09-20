@@ -1,0 +1,56 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "description": "Первая задача",
+    "status": "Новая",
+    "execute_at": "2022-09-30"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "description": "Вторая задача",
+    "status": "Новая",
+    "execute_at": "2022-09-29"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "description": "Третья задача",
+    "status": "Новая",
+    "execute_at": "2022-10-01"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "description": "Четвертая задача",
+    "status": "Новая",
+    "execute_at": "2022-10-01"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "description": "Пятая задача",
+    "status": "Новая",
+    "execute_at": "2022-10-06"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "description": "Шестая задача",
+    "status": "Новая",
+    "execute_at": "2022-10-06"
+  }
+}
+]
