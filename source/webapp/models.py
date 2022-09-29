@@ -2,12 +2,12 @@ from django.db import models
 
 
 class Task(models.Model):
-    NEW = "Новая"
+    NEW = "New"
 
     CHOICES = [
-        (NEW, 'Новая'),
-        ("in_the_process", 'В процессе'),
-        ("made", 'Сделано')
+        ('new', 'New'),
+        ("in_the_process", 'In the process'),
+        ("made", 'Made')
     ]
 
     description = models.TextField(max_length=300, null=False, blank=False, verbose_name='Описание')
