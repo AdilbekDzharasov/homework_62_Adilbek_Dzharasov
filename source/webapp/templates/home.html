@@ -20,6 +20,8 @@ To-do list
                   <div class="d-flex justify-content-between align-items-center">
                     <div class>
                       <a href="{% url 'task_detail' task.pk %}" class="btn btn-sm btn-outline-secondary">View</a>
+                      <a href="{% url 'task_update' task.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
+                      <a href="{% url 'task_delete' task.pk %}" class="btn btn-sm btn-outline-secondary">Delete</a>
                     </div>
                     <small class="text-muted">Date of completion: {{ task.execute_at|default:'' }}</small>
                   </div>
