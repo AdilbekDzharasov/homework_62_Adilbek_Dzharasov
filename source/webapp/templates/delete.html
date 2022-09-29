@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+Delete To-do
+{% endblock %}
+
+{% block task %}
+
+    <div class="album py-3 bg-light">
+        <div class="container">
+            <form method="POST" action="{% url 'task_delete' task.pk %}">
+                {% csrf_token %}
+                  <div class="row">
+                    <div class="col">
+                      <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                          <h5 class="card-text">{{ task.description }}</h5>
+                          <p class="card-text">Detailed description: {{ task.detail_description }}</p>
+                          <p class="card-text">Status: {{ task.status }}</p>
+                          <h3 class="mb-4" style="text-align:center;">Are you sure want to delete to-do?</h3>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class>
+                              <a href="{% url 'task_home' %}" class="btn btn-sm btn-outline-secondary">← Back to "To-do list</a>
+                            </div>
+                            <p><input type="submit" value="Confirm" class="btn btn-sm btn-outline-secondary"></p>
+                            <small class="text-muted">Date of completion: {{ task.execute_at|default:'' }}</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
+
