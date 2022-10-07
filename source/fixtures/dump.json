@@ -1,52 +1,110 @@
 [
 {
-  "model": "webapp.task",
-  "pk": 26,
+  "model": "auth.user",
+  "pk": 1,
   "fields": {
-    "description": "1 task",
-    "detail_description": "1 task 1 task 1 task 1 task 1 task 1 task 1 task",
-    "status": "new",
-    "execute_at": "2022-10-01"
+    "password": "pbkdf2_sha256$390000$xTLvEr0pFIz573UnhmnJWl$5n0/KCpE8K5XWIbraTvaeTVHamMzxAZG05OqrNh+sn4=",
+    "last_login": "2022-10-07T09:56:04.444Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-07T09:55:54.975Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
   "model": "webapp.task",
-  "pk": 27,
+  "pk": 2,
   "fields": {
-    "description": "2 task",
-    "detail_description": "2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task 2 task",
-    "status": "in_the_process",
-    "execute_at": "2022-10-08"
+    "summary": "One task",
+    "description": "One task One task One task",
+    "status": 1,
+    "type": 1,
+    "created_at": "2022-10-07T10:40:06.119Z",
+    "updated_at": "2022-10-07T10:40:06.119Z"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 28,
+  "pk": 3,
   "fields": {
-    "description": "3 task",
-    "detail_description": "3 task 3 task 3 task 3 task 3 task 3 task 3 task",
-    "status": "new",
-    "execute_at": "2022-10-03"
+    "summary": "Two task",
+    "description": "Two task Two task Two task",
+    "status": 2,
+    "type": 2,
+    "created_at": "2022-10-07T10:40:19.765Z",
+    "updated_at": "2022-10-07T10:40:19.765Z"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 29,
+  "pk": 4,
   "fields": {
-    "description": "4 task",
-    "detail_description": "4 task 4 task 4 task 4 task 4 task",
-    "status": "new",
-    "execute_at": "2022-10-04"
+    "summary": "3 task",
+    "description": "3 task 3 task 3 task",
+    "status": 3,
+    "type": 3,
+    "created_at": "2022-10-07T10:40:32.402Z",
+    "updated_at": "2022-10-07T10:40:32.402Z"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 30,
+  "pk": 5,
   "fields": {
-    "description": "5 task",
-    "detail_description": "5 task 5 task 5 task 5 task 5 task 5 task",
-    "status": "new",
-    "execute_at": "2022-10-05"
+    "summary": "4 task",
+    "description": "4 task 4 task 4 task",
+    "status": 2,
+    "type": 2,
+    "created_at": "2022-10-07T10:40:45.305Z",
+    "updated_at": "2022-10-07T10:40:45.305Z"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "status_title": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "status_title": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "status_title": "Done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "type_title": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "type_title": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "type_title": "Enhancement"
   }
 }
 ]
