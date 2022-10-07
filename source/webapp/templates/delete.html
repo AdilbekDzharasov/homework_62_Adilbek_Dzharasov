@@ -14,10 +14,10 @@ Delete To-do
                     <div class="col">
                       <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                          <h5 class="card-text">{{ task.description }}</h5>
-                          <p class="card-text">Detailed description: {{ task.detail_description }}</p>
+                          <h5 class="card-text">{{ task.summary }}</h5>
+                          <h5 class="card-text">Detailed description:  {{ task.description }}</h5>
                           <p class="card-text">Status: {{ task.status }}</p>
-                          <h3 class="mb-4" style="text-align:center;">Are you sure want to delete to-do?</h3>
+                          <p class="card-text">Type: {{ task.type }}</p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class>
                               <a href="{% url 'task_home' %}" class="btn btn-sm btn-outline-secondary">← Back to "To-do list</a>
