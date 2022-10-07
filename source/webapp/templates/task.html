@@ -13,17 +13,15 @@ To-do list
             <div class="col">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <h5 class="card-text">{{ task.description }}</h5>
-                  <p class="card-text">Detailed description: {{ task.detail_description }}</p>
+                  <h5 class="card-text">{{ task.summary }}</h5>
+                  <h5 class="card-text">Detailed description:  {{ task.description }}</h5>
                   <p class="card-text">Status: {{ task.status }}</p>
+                  <p class="card-text">Type: {{ task.type }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class>
                       <a href="{% url 'task_home' %}" class="btn btn-sm btn-outline-secondary">← Back to "To-do list</a>
                       <a href="{% url 'task_update' task.pk %}" class="btn btn-sm btn-outline-secondary">Update</a>
                       <a href="{% url 'task_delete' task.pk %}" class="btn btn-sm btn-outline-secondary">Delete</a>
-                    </div>
-                    <small class="text-muted">Date of completion: {{ task.execute_at|default:'' }}</small>
-                  </div>
                 </div>
               </div>
             </div>
