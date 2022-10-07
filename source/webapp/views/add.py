@@ -1,27 +1,30 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import TemplateView
 from webapp.models import Task
 from webapp.forms import TaskForm
+from django.views.generic.detail import DetailView
 
 
-def add_view(request):
-    if request.method == "GET":
+class TaskAddView(TemplateView):
+    template_name = 'add.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
         form = TaskForm()
+        context['form'] = form
         return render(request, "add.html", context={'form': form})
-    elif request.method == 'POST':
+
+    def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if form.is_valid():
-            task = Task.objects.create(
-                description=form.cleaned_data['description'],
-                detail_description=form.cleaned_data['detail_description'],
-                status=form.cleaned_data['status'],
-                execute_at=form.cleaned_data['execute_at']
-            )
+            task = form.save()
             return redirect('task_detail', pk=task.pk)
         else:
-            return render(request, 'add.html', context={'form': form})
+            return render(request, "add.html", context={'form': form})
 
 
-def detail_view(request, pk):
-    task = get_object_or_404(Task, pk=pk)
-    return render(request, 'task.html', context={'task': task})
+class TaskDetailView(DetailView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'task.html'
 
