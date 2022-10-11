@@ -12,7 +12,7 @@ class TaskAddView(TemplateView):
         context = self.get_context_data(**kwargs)
         form = TaskForm()
         context['form'] = form
-        return render(request, "add.html", context={'form': form})
+        return render(request, "add.html", context)
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
