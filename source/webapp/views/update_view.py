@@ -24,5 +24,7 @@ class TaskUpdateView(TemplateView):
         if form.is_valid():
             task = form.save()
             return redirect('task_detail', pk=task.pk)
-        return render(request, "update.html", context={'form': form})
+        context = self.get_context_data(**kwargs)
+        context['form'] = context
+        return self.render_to_response(context)
 
