@@ -1,13 +1,31 @@
 [
 {
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$xTLvEr0pFIz573UnhmnJWl$5n0/KCpE8K5XWIbraTvaeTVHamMzxAZG05OqrNh+sn4=",
+    "last_login": "2022-10-10T11:10:06.163Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-07T09:55:54.975Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
   "model": "webapp.task",
   "pk": 7,
   "fields": {
     "summary": "1 task or bug",
     "description": "One task One task One task",
     "status": 1,
-    "created_at": "2022-10-10T11:35:34.479",
-    "updated_at": "2022-10-11T06:33:37.523",
+    "created_at": "2022-10-10T11:35:34.479Z",
+    "updated_at": "2022-10-11T06:33:37.523Z",
     "type": [
       1
     ]
@@ -20,8 +38,8 @@
     "summary": "2 task",
     "description": "Two task Two task Two task",
     "status": 2,
-    "created_at": "2022-10-10T11:35:49.475",
-    "updated_at": "2022-10-10T11:37:34.157",
+    "created_at": "2022-10-10T11:35:49.475Z",
+    "updated_at": "2022-10-10T11:37:34.157Z",
     "type": [
       2
     ]
@@ -34,8 +52,8 @@
     "summary": "3 task",
     "description": "3 task 3 task 3 task",
     "status": 3,
-    "created_at": "2022-10-10T11:36:00.452",
-    "updated_at": "2022-10-11T07:10:39.002",
+    "created_at": "2022-10-10T11:36:00.452Z",
+    "updated_at": "2022-10-11T07:10:39.002Z",
     "type": [
       2
     ]
@@ -48,8 +66,8 @@
     "summary": "4 task",
     "description": "4 task 4 task 4 task 4 task",
     "status": 1,
-    "created_at": "2022-10-10T11:36:15.095",
-    "updated_at": "2022-10-10T11:36:15.095",
+    "created_at": "2022-10-10T11:36:15.095Z",
+    "updated_at": "2022-10-10T11:36:15.095Z",
     "type": [
       1,
       2
@@ -63,8 +81,8 @@
     "summary": "5 task",
     "description": "5 task 5 task 5 task",
     "status": 2,
-    "created_at": "2022-10-10T11:36:30.028",
-    "updated_at": "2022-10-10T11:36:30.028",
+    "created_at": "2022-10-10T11:36:30.028Z",
+    "updated_at": "2022-10-10T11:36:30.028Z",
     "type": [
       2
     ]
@@ -77,8 +95,8 @@
     "summary": "6 task",
     "description": "6 task 6 task 6 task",
     "status": 2,
-    "created_at": "2022-10-10T11:37:19.931",
-    "updated_at": "2022-10-10T11:37:19.931",
+    "created_at": "2022-10-10T11:37:19.931Z",
+    "updated_at": "2022-10-10T11:37:19.931Z",
     "type": [
       2
     ]
@@ -91,8 +109,8 @@
     "summary": "7 task",
     "description": "7 task 7 task 7 task 7 task",
     "status": 3,
-    "created_at": "2022-10-11T04:34:07.198",
-    "updated_at": "2022-10-11T04:34:11.612",
+    "created_at": "2022-10-11T04:34:07.198Z",
+    "updated_at": "2022-10-11T04:34:11.612Z",
     "type": [
       1
     ]
