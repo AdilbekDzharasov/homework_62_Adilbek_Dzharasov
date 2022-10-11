@@ -1,5 +1,11 @@
-from django.core.exceptions import ValidationError
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
+def at_summary_capitalize(value):
+    if value != value.capitalize():
+        raise ValidationError('Invalid (not capitalized) value')
+    return value
 
 
 class Task(models.Model):
@@ -7,7 +13,8 @@ class Task(models.Model):
         max_length=300,
         null=False,
         blank=False,
-        verbose_name='Summary'
+        verbose_name='Summary',
+        validators=[at_summary_capitalize]
     )
     description = models.TextField(
         max_length=3000,
@@ -32,4 +39,3 @@ class Task(models.Model):
     def __str__(self):
         return f"{self.summary}-{self.status}"
 
-    
