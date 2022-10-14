@@ -22,7 +22,9 @@
           <h1 class="fw-light">To-do list</h1>
           <p class="lead text-muted">A page to display your "to-do". You can view the list of tasks, add a new task and delete a task.</p>
           <p>
-            <a href="{% url 'task_add' %}" class="btn btn-primary my-2">Add a task</a>
+            <a href="{% url 'task_add' %}" class="btn btn-info my-2 text-white">Add a task</a>
+            <a href="{% url 'project_add' %}" class="btn btn-info my-2 text-white">Add a project</a>
+            <a href="{% url 'project_home' %}" class="btn btn-info my-2 text-white" >View all projects</a>
           </p>
         </div>
       </div>
