@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect
-from webapp.models.projects import Project
 from django.urls import reverse_lazy
+from webapp.models.projects import Project
 from django.views.generic import DeleteView
 
 
