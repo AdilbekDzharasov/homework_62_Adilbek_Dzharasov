@@ -5,7 +5,7 @@ from webapp.models import Task
 from webapp.forms import TaskForm
 from django.views.generic.detail import DetailView
 from webapp.models.projects import Project
-# from webapp.forms import ProjectTaskForm
+from webapp.forms import ProjectTaskForm
 
 
 class TaskAddView(CreateView):
@@ -17,18 +17,18 @@ class TaskAddView(CreateView):
         return reverse('task_detail', kwargs={'pk': self.object.pk})
 
 
-# class ProjectTaskAddView(CreateView):
-#     model = Task
-#     template_name = 'tasks/project_task_add.html'
-#     form_class = ProjectTaskForm
-#
-#     def form_valid(self, form):
-#         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-#         task = form.save(commit=False)
-#         task.project = project
-#         task.save()
-#         form.save_m2m()
-#         return redirect('project_detail', pk=project.pk)
+class ProjectTaskAddView(CreateView):
+    model = Task
+    template_name = 'tasks/project_task_add.html'
+    form_class = ProjectTaskForm
+
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        task = form.save(commit=False)
+        task.project = project
+        task.save()
+        form.save_m2m()
+        return redirect('project_detail', pk=project.pk)
 
 
 class TaskDetailView(DetailView):
