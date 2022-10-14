@@ -6,7 +6,7 @@ from django.utils.http import urlencode
 
 
 class HomeView(ListView):
-    template_name = 'home.html'
+    template_name = 'tasks/home.html'
     context_object_name = 'tasks'
     model = Task
     ordering = ['-created_at']
