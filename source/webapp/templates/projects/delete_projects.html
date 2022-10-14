@@ -19,11 +19,11 @@ Delete Projects
                   <p class="card-text">Beginning date: {{ project.beginning_date }}</p>
                   <p class="card-text">Expiration date: {{ project.expiration_date }}</p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class>
-                        <a href="{% url 'project_home' %}" class="btn btn-sm btn-outline-secondary">← Back to view all project</a>
-                    </div>
+                      <div class>
+                          <a href="{% url 'task_home' %}" class="btn btn-sm btn-outline-white">← Back to "To-do list</a>
+                          <input type="submit" value="Confirm" class="btn btn-sm btn-outline-white">
+                      </div>
                   </div>
-                  <p><input type="submit" value="Confirm" class="btn btn-sm btn-outline-secondary"></p>
                 </div>
               </div>
             </div>
