@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView
-from webapp.models.projects import Project
 from webapp.forms import ProjectForm
+from webapp.models.projects import Project
 
 
 class ProjectAddView(CreateView):
