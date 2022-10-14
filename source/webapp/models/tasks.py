@@ -36,7 +36,7 @@ class Task(models.Model):
     project = models.ForeignKey(
         to='webapp.Project',
         related_name='tasks',
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         verbose_name='Project'
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
