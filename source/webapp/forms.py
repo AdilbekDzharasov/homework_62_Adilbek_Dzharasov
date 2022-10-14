@@ -6,11 +6,12 @@ from webapp.widgets import DatePickerInput
 
 
 class TaskForm(forms.ModelForm):
-    status = forms.ModelChoiceField(required=True, label='Summary', queryset=Status.objects.all())
+    status = forms.ModelChoiceField(required=True, label='Status', queryset=Status.objects.all(), initial=[0])
+    project = forms.ModelChoiceField(required=True, label='Project', queryset=Project.objects.all(), initial=[0])
 
     class Meta:
         model = Task
-        fields = ('summary', 'description', 'status', 'type')
+        fields = ('summary', 'description', 'status', 'type', 'project')
         widgets = {
             'type': widgets.CheckboxSelectMultiple
         }
@@ -23,6 +24,17 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ('title', 'description', 'beginning_date', 'expiration_date')
+
+
+class ProjectTaskForm(forms.ModelForm):
+    status = forms.ModelChoiceField(required=True, label='Status', queryset=Status.objects.all(), initial=[0])
+
+    class Meta:
+        model = Task
+        fields = ('summary', 'description', 'status', 'type')
+        widgets = {
+            'type': widgets.CheckboxSelectMultiple
+        }
 
 
 class SearchForm(forms.Form):
