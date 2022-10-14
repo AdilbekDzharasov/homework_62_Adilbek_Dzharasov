@@ -33,6 +33,12 @@ class Task(models.Model):
         related_name='type',
         blank=False
     )
+    project = models.ForeignKey(
+        to='webapp.Project',
+        related_name='tasks',
+        on_delete=models.PROTECT,
+        verbose_name='Project'
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")
 
