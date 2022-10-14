@@ -17,3 +17,4 @@ class ProjectManager(Manager):
 
     def get_queryset(self):
         return CustomBaseQuerySet(self.model, using=self._db)
+
