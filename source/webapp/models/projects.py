@@ -1,6 +1,6 @@
 from django.utils import timezone
 from django.db import models
-from webapp.manager import ProjectManager
+from webapp.managers import ProjectManager
 
 
 class Project(models.Model):
