@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'tasks/base.html' %}
 
 {% block title %}
 To-do list
@@ -14,7 +14,9 @@ To-do list
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
                   <h3 class="card-text">{{ task.summary }}</h3>
-                  <h5 class="card-text">Detailed description:  {{ task.description }}</h5>
+                  <h5 class="card-text mb-4">Detailed description:  {{ task.description }}</h5>
+                  <p class="card-text">Project: {{ task.project.title }}</p>
+                  <p class="card-text">Project description: {{ task.project.description }}</p>
                   <p class="card-text">Status: {{ task.status }}</p>
                   <p class="card-text">
                     {% if task.type.all|length > 0 %}
