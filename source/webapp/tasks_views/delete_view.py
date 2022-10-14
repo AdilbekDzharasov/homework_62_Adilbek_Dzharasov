@@ -1,22 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from webapp.models import Task
-from django.views.generic import TemplateView
+from django.views.generic import DeleteView
 
 
-class TaskDeleteView(TemplateView):
-    template_name = 'delete.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
-        return context
-
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        return render(request, "delete.html", context)
-
-    def post(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        context['task'].delete()
-        return redirect('task_home')
+class TaskDeleteView(DeleteView):
+    template_name = 'tasks/delete.html'
+    model = Task
+    context_object_name = 'task'
+    success_url = reverse_lazy('task_home')
 
