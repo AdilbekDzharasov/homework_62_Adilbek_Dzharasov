@@ -17,6 +17,7 @@ To-do list
                   <p class="card-text">Description: {{ project.description }}</p>
                   <p class="card-text">Beginning date: {{ project.beginning_date }}</p>
                   <p class="card-text">Expiration date: {{ project.expiration_date }}</p>
+                  {% if user.is_authenticated %}
                   <div class="d-flex justify-content-between align-items-center">
                     <div class>
                       <a href="{% url 'project_task_create' project.pk %}" class="btn btn-sm btn-outline-black">Add a task</a>
@@ -24,6 +25,7 @@ To-do list
                       <a href="{% url 'project_all_delete' project.pk %}" class="btn btn-sm btn-outline-black">Delete without recovery</a>
                     </div>
                   </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
