@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView
 from webapp.forms import ProjectForm
 from webapp.models.projects import Project
 
 
-class ProjectAddView(CreateView):
+class ProjectAddView(LoginRequiredMixin, CreateView):
     template_name = 'projects/add_project.html'
     model = Project
     form_class = ProjectForm
@@ -13,7 +14,7 @@ class ProjectAddView(CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin, DetailView):
     template_name = "projects/project.html"
     model = Project
 

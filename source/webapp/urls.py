@@ -5,7 +5,8 @@ from webapp.tasks_views.delete_view import TaskDeleteView
 from webapp.tasks_views.update_view import TaskUpdateView
 from webapp.projects_views.base_project import HomeProjectView
 from webapp.projects_views.add_project import ProjectDetailView, ProjectAddView
-from webapp.projects_views.delete_project import confirm_delete, ProjectDeleteView
+from webapp.projects_views.delete_project import ProjectDeleteView
+from webapp.projects_views.delete_project import ConfirmDelete
 
 
 urlpatterns = [
@@ -18,7 +19,7 @@ urlpatterns = [
     path('projects/<int:pk>', ProjectDetailView.as_view(), name='project_detail'),
     path('projects/add/', ProjectAddView.as_view(), name='project_add'),
     path('projects/<int:pk>/tasks/add/', ProjectTaskAddView.as_view(), name='project_task_create'),
-    path('projects/confirm_delete/<int:pk>', confirm_delete, name='project_delete'),
+    path('projects/confirm_delete/<int:pk>', ConfirmDelete().confirm_delete, name='project_delete'),
     path('projects/delete/<int:pk>', ProjectDeleteView.as_view(), name='project_all_delete')
 ]
 
