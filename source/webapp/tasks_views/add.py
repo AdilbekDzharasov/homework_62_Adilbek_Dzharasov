@@ -32,7 +32,7 @@ class ProjectTaskAddView(LoginRequiredMixin, CreateView):
         return redirect('project_detail', pk=project.pk)
 
 
-class TaskDetailView(LoginRequiredMixin, DetailView):
+class TaskDetailView(DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'tasks/task.html'

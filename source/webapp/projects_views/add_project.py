@@ -14,7 +14,7 @@ class ProjectAddView(LoginRequiredMixin, CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectDetailView(LoginRequiredMixin, DetailView):
+class ProjectDetailView(DetailView):
     template_name = "projects/project.html"
     model = Project
 
