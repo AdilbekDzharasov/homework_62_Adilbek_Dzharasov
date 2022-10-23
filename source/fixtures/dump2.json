@@ -1,23 +1,5 @@
 [
 {
-  "model": "auth.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$390000$xTLvEr0pFIz573UnhmnJWl$5n0/KCpE8K5XWIbraTvaeTVHamMzxAZG05OqrNh+sn4=",
-    "last_login": "2022-10-14T09:24:01.957Z",
-    "is_superuser": true,
-    "username": "root",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2022-10-07T09:55:54.975Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
   "model": "webapp.task",
   "pk": 17,
   "fields": {
@@ -261,10 +243,14 @@
     "title": "Project 1",
     "description": "Project 1 Project 1 Project 1",
     "is_deleted": false,
-    "beginning_date": "2022-10-12",
-    "expiration_date": "2022-10-31",
+    "beginning_date": "2022-10-23",
+    "expiration_date": "2022-11-04",
     "created_at": "2022-10-14T09:24:31.187Z",
-    "deleted_at": null
+    "deleted_at": null,
+    "is_deleted_user": false,
+    "user": [
+      21
+    ]
   }
 },
 {
@@ -275,9 +261,13 @@
     "description": "Project 2 Project 2 Project 2",
     "is_deleted": false,
     "beginning_date": "2022-10-14",
-    "expiration_date": "2022-11-06",
+    "expiration_date": "2022-11-13",
     "created_at": "2022-10-14T10:17:24.941Z",
-    "deleted_at": null
+    "deleted_at": null,
+    "is_deleted_user": false,
+    "user": [
+      22
+    ]
   }
 },
 {
@@ -290,7 +280,9 @@
     "beginning_date": "2022-10-14",
     "expiration_date": "2022-10-14",
     "created_at": "2022-10-14T10:19:33.474Z",
-    "deleted_at": "2022-10-14T10:19:35.439Z"
+    "deleted_at": "2022-10-14T10:19:35.439Z",
+    "is_deleted_user": false,
+    "user": []
   }
 },
 {
@@ -303,7 +295,43 @@
     "beginning_date": "2022-10-22",
     "expiration_date": "2022-11-25",
     "created_at": "2022-10-14T10:23:09.793Z",
-    "deleted_at": null
+    "deleted_at": null,
+    "is_deleted_user": false,
+    "user": [
+      23
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 24,
+  "fields": {
+    "title": "TEST",
+    "description": "TEST",
+    "is_deleted": true,
+    "beginning_date": "2022-10-18",
+    "expiration_date": "2022-10-27",
+    "created_at": "2022-10-23T18:28:59.213Z",
+    "deleted_at": "2022-10-23T18:29:49.160Z",
+    "is_deleted_user": false,
+    "user": [
+      20
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 25,
+  "fields": {
+    "title": "Project 4",
+    "description": "Project 4 Project 4 Project 4 Project 4 Project 4 Project 4",
+    "is_deleted": false,
+    "beginning_date": "2022-10-24",
+    "expiration_date": "2022-11-06",
+    "created_at": "2022-10-23T18:31:04.957Z",
+    "deleted_at": null,
+    "is_deleted_user": false,
+    "user": []
   }
 }
 ]
