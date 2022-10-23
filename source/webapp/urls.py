@@ -4,8 +4,8 @@ from webapp.tasks_views.add import TaskAddView, TaskDetailView, ProjectTaskAddVi
 from webapp.tasks_views.delete_view import TaskDeleteView
 from webapp.tasks_views.update_view import TaskUpdateView
 from webapp.projects_views.base_project import HomeProjectView
-from webapp.projects_views.add_project import ProjectDetailView, ProjectAddView
-from webapp.projects_views.delete_project import ProjectDeleteView
+from webapp.projects_views.add_project import ProjectDetailView, ProjectAddView, ProjectAddUserView
+from webapp.projects_views.delete_project import ProjectDeleteView, ProjectDeleteUserView
 from webapp.projects_views.delete_project import ConfirmDelete
 
 
@@ -20,6 +20,8 @@ urlpatterns = [
     path('projects/add/', ProjectAddView.as_view(), name='project_add'),
     path('projects/<int:pk>/tasks/add/', ProjectTaskAddView.as_view(), name='project_task_create'),
     path('projects/confirm_delete/<int:pk>', ConfirmDelete().confirm_delete, name='project_delete'),
-    path('projects/delete/<int:pk>', ProjectDeleteView.as_view(), name='project_all_delete')
+    path('projects/delete/<int:pk>', ProjectDeleteView.as_view(), name='project_all_delete'),
+    path('projects/add/user/<int:pk>', ProjectAddUserView.as_view(), name='project_add_user'),
+    path('projects/confirm_delete_user/<int:pk>', ProjectDeleteUserView().confirm_delete_user, name='project_delete_user'),
 ]
 

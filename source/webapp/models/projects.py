@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db import models
 from webapp.managers import ProjectManager
@@ -21,6 +22,8 @@ class Project(models.Model):
     expiration_date = models.DateField(verbose_name='Expiration date', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
     deleted_at = models.DateTimeField(verbose_name='Deleted at', null=True, default=None)
+    user = models.ManyToManyField(User, related_name='projects', blank=True, verbose_name='User')
+    is_deleted_user = models.BooleanField(verbose_name='Is deleted user', default=False, null=False)
 
     objects = ProjectManager()
 
