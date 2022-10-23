@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import CreateView
@@ -9,19 +9,24 @@ from webapp.models.projects import Project
 from webapp.forms import ProjectTaskForm
 
 
-class TaskAddView(LoginRequiredMixin, CreateView):
+class TaskAddView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'tasks/add.html'
     form_class = TaskForm
+    permission_required = 'webapp.create_task'
 
     def get_success_url(self):
         return reverse('task_detail', kwargs={'pk': self.object.pk})
 
+    def test_func(self):
+        return self.get_object().user == self.request.user or self.request.user.has_perm('webapp.create_task')
 
-class ProjectTaskAddView(LoginRequiredMixin, CreateView):
+
+class ProjectTaskAddView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'tasks/project_task_add.html'
     form_class = ProjectTaskForm
+    permission_required = 'webapp.add_task'
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -30,6 +35,10 @@ class ProjectTaskAddView(LoginRequiredMixin, CreateView):
         task.save()
         form.save_m2m()
         return redirect('project_detail', pk=project.pk)
+
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        return super().has_permission() and self.request.user in project.user.all()
 
 
 class TaskDetailView(DetailView):

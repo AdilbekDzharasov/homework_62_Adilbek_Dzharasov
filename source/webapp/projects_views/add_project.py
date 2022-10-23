@@ -1,18 +1,18 @@
-from urllib import request
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView
 from webapp.forms import ProjectForm
 from webapp.models.projects import Project
 from webapp.forms import ProjectAddUserForm
+from webapp.projects_views.group_permission import GroupPermission
 
 
-class ProjectAddView(LoginRequiredMixin, CreateView):
+class ProjectAddView(GroupPermission, LoginRequiredMixin, CreateView):
     template_name = 'projects/add_project.html'
     model = Project
     form_class = ProjectForm
+    groups = ['Manager']
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
@@ -28,10 +28,12 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectAddUserView(UpdateView):
+class ProjectAddUserView(GroupPermission, PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'projects/projects_user_add.html'
     form_class = ProjectAddUserForm
+    permission_required = 'webapp.add_task'
+    groups = ['Manager', 'TeamLead']
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -40,4 +42,7 @@ class ProjectAddUserView(UpdateView):
         user.save()
         form.save_m2m()
         return redirect('project_detail', pk=project.pk)
+
+    def has_permission(self):
+        return Project.objects.filter(user=self.request.user, pk=self.get_object().pk) and super().has_permission()
 

@@ -21,9 +21,9 @@ To-do list
                   <div class="d-flex justify-content-between align-items-center">
                     <div class>
                       <a href="{% url 'project_task_create' project.pk %}" class="btn btn-sm btn-outline-black">Add a task</a>
-                      <a href="{% url 'project_delete' project.pk %}" class="btn btn-sm btn-outline-black">Delete</a>
-                      <a href="{% url 'project_all_delete' project.pk %}" class="btn btn-sm btn-outline-black">Delete without recovery</a>
                       <a href="{% url 'project_add_user' project.pk %}" class="btn btn-sm btn-outline-black">Delete or add user</a>
+                      <a href="{% url 'project_update' project.pk %}" class="btn btn-sm btn-outline-black">Update</a>
+                      <a href="{% url 'project_all_delete' project.pk %}" class="btn btn-sm btn-outline-black">Delete</a>
                     </div>
                   </div>
                   {% endif %}

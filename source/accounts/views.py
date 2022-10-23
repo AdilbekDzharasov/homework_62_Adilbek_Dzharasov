@@ -29,12 +29,12 @@ class LoginView(TemplateView):
         login(request, user)
         if next:
             return redirect(next)
-        return redirect('task_home')
+        return redirect('project_home')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('task_home')
+    return redirect('project_home')
 
 
 class RegisterView(CreateView):
@@ -47,7 +47,7 @@ class RegisterView(CreateView):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('task_home')
+            return redirect('project_home')
         context = {}
         context['form'] = form
         return self.render_to_response(context)

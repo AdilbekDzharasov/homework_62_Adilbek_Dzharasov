@@ -29,10 +29,10 @@
           <form action="{% url 'logout' %}" method="post">
               {% csrf_token %}
               <span class="text-white">Hello: {{ user.username }}</span>
-              <input type="submit" value="Выйти">
+              <input type="submit" value="Exit">
           </form>
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn my-2 text-white">Вход</a><
+                <a href="{% url 'login' %}" class="btn btn my-2 text-white">Entrance</a><
             {% endif %}
       </div>
     </div>

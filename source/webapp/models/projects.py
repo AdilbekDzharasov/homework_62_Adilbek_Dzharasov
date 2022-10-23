@@ -27,7 +27,7 @@ class Project(models.Model):
 
     objects = ProjectManager()
 
-    def delete_project(self, using=None, keep_parents=False):
+    def delete(self, using=None, keep_parents=False):
         self.deleted_at = timezone.now()
         self.is_deleted = True
         self.save()

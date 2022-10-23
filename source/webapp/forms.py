@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.models import User
 from django.forms import widgets
 from webapp.models import Type, Status, Task
 from webapp.models.projects import Project
@@ -9,11 +8,10 @@ from webapp.widgets import DatePickerInput
 class TaskForm(forms.ModelForm):
     status = forms.ModelChoiceField(required=True, label='Status', queryset=Status.objects.all(), initial=[0])
     project = forms.ModelChoiceField(required=True, label='Project', queryset=Project.objects.all(), initial=[0])
-    user = forms.ModelChoiceField(required=True, label='Project', queryset=User.objects.all())
 
     class Meta:
         model = Task
-        fields = ('summary', 'description', 'status', 'type', 'project', 'user')
+        fields = ('summary', 'description', 'status', 'type', 'project')
         widgets = {
             'type': widgets.CheckboxSelectMultiple
         }
