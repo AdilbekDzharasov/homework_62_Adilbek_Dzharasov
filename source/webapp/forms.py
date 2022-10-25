@@ -24,9 +24,6 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ('title', 'description', 'beginning_date', 'expiration_date', 'user')
-        widgets = {
-            'user': widgets.CheckboxSelectMultiple
-        }
 
 
 class ProjectTaskForm(forms.ModelForm):
